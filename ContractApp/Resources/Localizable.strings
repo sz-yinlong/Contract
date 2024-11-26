@@ -1,0 +1,7 @@
+buyer_company_name = "RUSIMPORT LLC";
+buyer_address = "Office 203, Lenina Street, 15, St. Petersburg, Russia";
+buyer_director = "Vladimir Ivanov";
+
+seller_company_name = "SUNSTREAM TRADING CO., LIMITED";
+seller_address = "Room 502, 5/F, Ocean View Commercial Building, 120 Connaught Road, Central, Hong Kong";
+seller_director = "Alexander Smirnov";

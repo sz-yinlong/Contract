@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FAC9BC982CF59B7200568B90 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = FAC9BC972CF59B7200568B90 /* RswiftLibrary */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FAA68D862CF57D7D00D43D0E /* ContractApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContractApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC9BC982CF59B7200568B90 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +64,14 @@
 			buildRules = (
 			);
 			dependencies = (
+				FAC9BC9A2CF59B8E00568B90 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				FAA68D882CF57D7D00D43D0E /* ContractApp */,
 			);
 			name = ContractApp;
 			packageProductDependencies = (
+				FAC9BC972CF59B7200568B90 /* RswiftLibrary */,
 			);
 			productName = ContractApp;
 			productReference = FAA68D862CF57D7D00D43D0E /* ContractApp.app */;
@@ -94,6 +101,9 @@
 			);
 			mainGroup = FAA68D7D2CF57D7D00D43D0E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FAC9BC962CF59B7200568B90 /* XCRemoteSwiftPackageReference "R" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FAA68D872CF57D7D00D43D0E /* Products */;
 			projectDirPath = "";
@@ -123,6 +133,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAC9BC9A2CF59B8E00568B90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = FAC9BC992CF59B8E00568B90 /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FAA68D952CF57D7E00D43D0E /* Debug */ = {
@@ -321,6 +338,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAC9BC962CF59B7200568B90 /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAC9BC972CF59B7200568B90 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAC9BC962CF59B7200568B90 /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
+		};
+		FAC9BC992CF59B8E00568B90 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAC9BC962CF59B7200568B90 /* XCRemoteSwiftPackageReference "R" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAA68D7E2CF57D7D00D43D0E /* Project object */;
 }

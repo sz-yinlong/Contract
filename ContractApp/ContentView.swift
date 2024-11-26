@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 
+let byer = R.string.localizable.buyer_address()
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
@@ -33,10 +35,12 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            Text("Select an item")
+            Text(byer)
         }
     }
-
+    
+   
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(timestamp: Date())
