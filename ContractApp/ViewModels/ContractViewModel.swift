@@ -8,6 +8,9 @@ import Foundation
 
 class ContractViewModel: ObservableObject {
     @Published var contractData: ContractData
+    @Published var selectedSeller: Seller?
+    
+    let sellers = Seller.sellers
 
     init() {
         // Initialize with company's fixed data
