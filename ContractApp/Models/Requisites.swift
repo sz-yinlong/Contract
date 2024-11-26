@@ -23,4 +23,5 @@ struct ContractData {
     var contractDate: Date
     var totalAmount: Double
     var contractNumber: String
+  
 }
