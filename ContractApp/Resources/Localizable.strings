@@ -1,7 +1,40 @@
+
+// Buyer
 buyer_company_name = "RUSIMPORT LLC";
 buyer_address = "Office 203, Lenina Street, 15, St. Petersburg, Russia";
-buyer_director = "Vladimir Ivanov";
+buyer_business_registration_number = "47562839";
+buyer_inn = "7604358912";
+buyer_kpp = "123456789";
+buyer_account_cny = "40807159078900000004";
+buyer_bank_name = "Sberbank (PJSC)";
+buyer_bic = "044525225";
+buyer_bank_address = "117312, Russia, Moscow, Vavilova Street 19";
+buyer_swift_code = "SABRRUMM";
+buyer_correspondent_account = "30101810345250000414";
+buyer_director_name = "Vladimir Ivanov";
 
+// Seller
 seller_company_name = "SUNSTREAM TRADING CO., LIMITED";
 seller_address = "Room 502, 5/F, Ocean View Commercial Building, 120 Connaught Road, Central, Hong Kong";
-seller_director = "Alexander Smirnov";
+seller_business_registration_number = "83120746";
+seller_inn = "2093485726";
+seller_kpp = "432167089";
+seller_account_cny = "40807157012340000002";
+seller_bank_name = "VTB Bank (PJSC)";
+seller_bic = "044527100";
+seller_bank_address = "105066, Russia, Moscow, Myasnitskaya Street 35";
+seller_swift_code = "VTBRRUM2SW2";
+seller_correspondent_account = "30101810745270000412";
+seller_director_name = "Alexander Smirnov";
+
+
+buyer_info = "Buyer Information";
+buyer_name = "Buyer Name";
+buyer_address = "Buyer Address";
+buyer_registration_number = "Business Registration Number";
+contract_details = "Contract Details";
+contract_date = "Contract Date";
+total_amount = "Total Amount";
+generate_contract = "Generate Contract";
+contract_generator = "Contract Generator";
+currency_usd = "USD";
