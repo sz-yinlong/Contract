@@ -12,9 +12,9 @@ struct ContractGeneratorView: View {
                             selectedSeller: $viewModel.selectedSeller,
                             sellers: viewModel.sellers
                         )
-                        .padding(.trailing, 20)
-                        
-                        VStack(alignment: .trailing) {
+                        .padding(.trailing, 50)
+
+                        HStack {
                             Text(R.string.localizable.contract_number())
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
@@ -23,28 +23,27 @@ struct ContractGeneratorView: View {
                                 .fontDesign(.monospaced)
                         }
                     }
-                    .padding(.horizontal, 8)
-                    
+                    .padding(.horizontal, 18)
+
                     Divider()
-                        
-                    
+                        .padding()
+
                     VStack(spacing: 8) {
                         BuyerInformationSection(viewModel: viewModel)
+                            .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 250))
                         ContractDetailsSection(
                             totalAmount: $viewModel.contractData.totalAmount
                         )
-                        GenerateContractButton {
-                            viewModel.generateContract()
-                        }
+                        
                     }
-                    .padding(.horizontal, 8)
+                    
+                    
                 }
                 .frame(minWidth: 600, minHeight: 800)
                 .padding(8)
                 .background(Color(.darkGray).opacity(0.1))
             }
             .navigationTitle(R.string.localizable.contract_generator())
-
         }
     }
 }

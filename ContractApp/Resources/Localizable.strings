@@ -38,6 +38,6 @@ total_amount = "Total Amount";
 generate_contract = "Generate Contract";
 contract_generator = "Contract Generator";
 currency_usd = "USD";
-contract_number = "Contract Number";
+contract_number = "№";
 contract_info = "Contract Information";
 seller_info = "Seller Information";
