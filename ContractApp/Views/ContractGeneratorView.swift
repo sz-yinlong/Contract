@@ -5,69 +5,54 @@ struct ContractGeneratorView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 16) {
-                // Top Section (Seller, Date, Contract Number)
-                HStack(alignment: .top) {
-                    // Seller Section
-                    SellerSection(
-                        selectedSeller: $viewModel.selectedSeller,
-                        sellers: viewModel.sellers
-                    )
-                    .frame(maxWidth: .infinity, alignment: .leading) // Выровнять влево
-
-                  
-
-                    // Contract Date and Number Section
-                    VStack(alignment: .leading, spacing: 8) {
-                        DatePicker(
-                            R.string.localizable.contract_date(),
-                            selection: $viewModel.contractData.contractDate,
-                            displayedComponents: .date
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 8) {
+                    HStack {
+                        SellerSection(
+                            selectedSeller: $viewModel.selectedSeller,
+                            sellers: viewModel.sellers
                         )
-                        .labelsHidden()
-
-                        HStack {
+                        .padding(.trailing, 20)
+                        
+                        VStack(alignment: .trailing) {
                             Text(R.string.localizable.contract_number())
-                                .font(.subheadline)
+                                .font(.footnote)
                                 .foregroundColor(.secondary)
                             Text(viewModel.contractData.contractNumber)
-                                .font(.body)
+                                .font(.caption)
+                                .fontDesign(.monospaced)
                         }
                     }
-                }
-                .padding(.horizontal, 16)
-
-                // Form Section (Buyer Information, Contract Details)
-                Form {
-                    // Buyer Information
-                    BuyerInformationSection(viewModel: viewModel)
-                        .padding(.top, 16)
-
-                    // Contract Details
-                    ContractDetailsSection(
-                        totalAmount: $viewModel.contractData.totalAmount
-                    )
-                    .padding(.top, 16)
-
-                    // Generate Button
-                    GenerateContractButton {
-                        viewModel.generateContract()
+                    .padding(.horizontal, 8)
+                    
+                    Divider()
+                        
+                    
+                    VStack(spacing: 8) {
+                        BuyerInformationSection(viewModel: viewModel)
+                        ContractDetailsSection(
+                            totalAmount: $viewModel.contractData.totalAmount
+                        )
+                        GenerateContractButton {
+                            viewModel.generateContract()
+                        }
                     }
-                    .padding(.top, 16)
+                    .padding(.horizontal, 8)
                 }
-                .padding()
+                .frame(minWidth: 600, minHeight: 800)
+                .padding(8)
+                .background(Color(.darkGray).opacity(0.1))
             }
-            .padding()
-            .background(Color(.darkGray).opacity(0.1))
             .navigationTitle(R.string.localizable.contract_generator())
+
         }
-        .padding()
     }
 }
 
-// MARK: - Preview
-
-#Preview {
-    ContractGeneratorView()
-        .frame(width: 500)
+struct ContractGeneratorView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContractGeneratorView()
+            .frame(width: 700, height: 600) // Adjust as needed
+            .previewLayout(.sizeThatFits) // Prevents extra spacing
+    }
 }

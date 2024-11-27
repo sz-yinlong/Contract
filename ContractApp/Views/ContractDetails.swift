@@ -9,23 +9,24 @@ import SwiftUI
 
 struct ContractDetailsSection: View {
     @Binding var totalAmount: Double
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(R.string.localizable.contract_details)
                 .font(.system(size: 20, weight: .medium))
                 .foregroundColor(.white)
-            
+
             VStack(alignment: .leading, spacing: 8) {
                 Text(R.string.localizable.total_amount())
                     .font(.system(size: 13))
                     .foregroundColor(.gray)
-                
+
                 TextField(
                     "",
                     value: $totalAmount,
                     format: .currency(code: R.string.localizable.currency_usd())
                 )
+
                 .textFieldStyle(PlainTextFieldStyle())
                 .font(.system(size: 15))
                 .padding(8)
@@ -36,4 +37,8 @@ struct ContractDetailsSection: View {
         }
         .padding()
     }
+}
+
+#Preview {
+    ContractGeneratorView()
 }

@@ -12,12 +12,12 @@ struct BuyerInformationSection: View {
     @ObservedObject var viewModel: ContractViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
             Text("Buyer Information")
-                .font(.system(size: 20, weight: .medium))
+                .font(.system(size: 12, weight: .medium))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 8)
+                .padding(.bottom, 4)
             
             VStack(spacing: 16) {
                 LabeledTextField(
@@ -39,7 +39,7 @@ struct BuyerInformationSection: View {
                 )
             }
         }
-        .padding(24)
+        .padding()
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(
@@ -58,4 +58,7 @@ struct BuyerInformationSection: View {
                 .stroke(Color.white.opacity(0.1), lineWidth: 1)
         )
     }
+}
+#Preview {
+    ContractGeneratorView()
 }
