@@ -12,6 +12,7 @@ struct ContractDetailsSection: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
+            
             Text(R.string.localizable.contract_details)
                 .font(.system(size: 20, weight: .medium))
                 .foregroundColor(.white)

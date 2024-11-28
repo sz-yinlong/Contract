@@ -6,15 +6,15 @@ struct ContractGeneratorView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 8) {
+                VStack(spacing: 16) {
                     HStack {
                         SellerSection(
                             selectedSeller: $viewModel.selectedSeller,
                             sellers: viewModel.sellers
                         )
                         .padding(.trailing, 50)
-                     
-                        HStack {
+
+                        VStack(alignment: .trailing, spacing: 4) {
                             Text(R.string.localizable.contract_number())
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
@@ -22,32 +22,42 @@ struct ContractGeneratorView: View {
                                 .font(.caption)
                                 .fontDesign(.monospaced)
                         }
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                     .padding(.horizontal, 18)
-                    .sectionStyle()
-                    Divider()
-                        .padding()
 
-                  
-                        BuyerInformationSection(viewModel: viewModel)
-                            .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 250))
-                        ContractDetailsSection(
-                            totalAmount: $viewModel.contractData.totalAmount
-                        )
-                        .sectionStyle()
-                        GenerateContractButton {
+                    Divider()
+                        .padding(.horizontal, 18)
+
+                    VStack(spacing: 16) {
+                        
+                        HStack {
+                            BuyerInformationSection(viewModel: viewModel)
+                                .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 250))
+                        }
+                    }
+                    
+                    ContractDetailsSection(
+                        totalAmount: $viewModel.contractData.totalAmount
+                    )
+                    .sectionStyle()
+                    GenerateContractButton {
+                        withAnimation {
                             viewModel.generateContract()
                         }
-                  
-                    
-                    
+                    }
+                    .padding(.horizontal, 18)
                 }
                 .frame(minWidth: 600, minHeight: 800)
                 .padding(8)
-                .background(Color(.darkGray).opacity(0.1))
+                
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             .navigationTitle(R.string.localizable.contract_generator())
         }
+        .frame(minWidth: 600, minHeight: 600)
+        
     }
 }
 

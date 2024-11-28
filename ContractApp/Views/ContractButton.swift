@@ -20,6 +20,6 @@ struct GenerateContractButton: View {
                 .background(Color.blue.opacity(0.7))
                 .cornerRadius(6)
         }
-        .padding()
+        .buttonStyle(PlainButtonStyle())
     }
 }

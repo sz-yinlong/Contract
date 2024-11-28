@@ -6,59 +6,34 @@
 //
 import SwiftUI
 
-
-
 struct BuyerInformationSection: View {
     @ObservedObject var viewModel: ContractViewModel
-    
+
     var body: some View {
         VStack(spacing: 10) {
-            Text("Buyer Information")
-                .font(.system(size: 12, weight: .medium))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 4)
-            
-            VStack(spacing: 16) {
+            InformationSection(title: R.string.localizable.buyer_info(), iconName: "person.fill") {
                 LabeledTextField(
-                    title: "Buyer Name",
-                    placeholder: "Enter buyer name",
+                    title: R.string.localizable.buyer_name(),
+                    placeholder: R.string.localizable.enter_buyer_name(),
                     text: $viewModel.contractData.buyerName
                 )
-                
                 LabeledTextField(
-                    title: "Buyer Address",
-                    placeholder: "Enter address",
+                    title: R.string.localizable.buyer_address(),
+                    placeholder: R.string.localizable.enter_buyer_address(),
                     text: $viewModel.contractData.buyerAddress
                 )
-                
                 LabeledTextField(
-                    title: "Registration Number",
-                    placeholder: "Enter registration number",
+                    title: R.string.localizable.buyer_inn(),
+                    placeholder: R.string.localizable.enter_registration_number(),
                     text: $viewModel.contractData.buyerRegNumber
                 )
             }
         }
+    
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(.sRGB, red: 0.2, green: 0.2, blue: 0.2, opacity: 1),
-                            Color(.sRGB, red: 0.15, green: 0.15, blue: 0.15, opacity: 1)
-                        ]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                )
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(Color.white.opacity(0.1), lineWidth: 1)
-        )
     }
 }
+
 #Preview {
     ContractGeneratorView()
 }

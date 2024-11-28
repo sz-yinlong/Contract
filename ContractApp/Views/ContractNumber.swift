@@ -40,6 +40,6 @@ struct ContractNumberSection: View {
         }
 
         .padding(.vertical, 12)
-        .frame(maxWidth: .infinity, alignment: .leading) // Добавляем frame с выравниванием влево
+        .frame(alignment: .leading) // Добавляем frame с выравниванием влево
     }
 }

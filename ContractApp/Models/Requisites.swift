@@ -9,21 +9,15 @@ import Foundation
 
 // Models
 struct ContractData {
-    // Company details (fixed)
-    let companyName: String
-    let companyAddress: String
-    let companyRegNumber: String
-    
-    // Buyer details (variable)
-    var buyerName: String
-    var buyerAddress: String
-    var buyerRegNumber: String
-    
-    // Contract details
-    var contractDate: Date
-    var totalAmount: Double
-    var contractNumber: String
-  
+    var companyName: String = ""
+    var companyAddress: String = ""
+    var companyRegNumber: String = ""
+    var buyerName: String = ""
+    var buyerAddress: String = ""
+    var buyerRegNumber: String = ""
+    var contractDate: Date = Date()
+    var totalAmount: Double = 0.0
+    var contractNumber: String = ""
 }
 
 struct Seller: Identifiable, Hashable {

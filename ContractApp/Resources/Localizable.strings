@@ -41,3 +41,10 @@ currency_usd = "USD";
 contract_number = "№";
 contract_info = "Contract Information";
 seller_info = "Seller Information";
+
+enter_buyer_name = "Enter Buyer Name";
+enter_buyer_address = "Enter Buyer Address";
+enter_registration_number = "Enter Registration Number";
+enter_contract_date = "Enter Contract Date";
+enter_total_amount = "Enter Total Amount";
+enter_seller_name = "Enter Seller Name";

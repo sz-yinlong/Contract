@@ -13,7 +13,9 @@ struct SellerSection: View {
     let sellers: [Seller]
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        HStack() {
+            Image(systemName: "person.3.fill")
+                    .foregroundColor(.accentColor)
             Text(R.string.localizable.seller_info)
                 .font(.system(size: 12, weight: .medium))
                 .foregroundColor(.white)
