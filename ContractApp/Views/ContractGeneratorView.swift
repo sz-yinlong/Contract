@@ -13,7 +13,7 @@ struct ContractGeneratorView: View {
                             sellers: viewModel.sellers
                         )
                         .padding(.trailing, 50)
-
+                     
                         HStack {
                             Text(R.string.localizable.contract_number())
                                 .font(.footnote)
@@ -24,18 +24,21 @@ struct ContractGeneratorView: View {
                         }
                     }
                     .padding(.horizontal, 18)
-
+                    .sectionStyle()
                     Divider()
                         .padding()
 
-                    VStack(spacing: 8) {
+                  
                         BuyerInformationSection(viewModel: viewModel)
                             .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 250))
                         ContractDetailsSection(
                             totalAmount: $viewModel.contractData.totalAmount
                         )
-                        
-                    }
+                        .sectionStyle()
+                        GenerateContractButton {
+                            viewModel.generateContract()
+                        }
+                  
                     
                     
                 }
