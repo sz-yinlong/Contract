@@ -11,32 +11,24 @@ struct ContractDetailsSection: View {
     @Binding var totalAmount: Double
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            
-            Text(R.string.localizable.contract_details)
-                .font(.system(size: 20, weight: .medium))
-                .foregroundColor(.white)
-
-            VStack(alignment: .leading, spacing: 8) {
-                Text(R.string.localizable.total_amount())
-                    .font(.system(size: 13))
-                    .foregroundColor(.gray)
-
-                TextField(
-                    "",
-                    value: $totalAmount,
-                    format: .currency(code: R.string.localizable.currency_usd())
+        InformationSection(
+            title: R.string.localizable.contract_details(),
+            iconName: "doc.text.fill"
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                LabeledTextField(
+                    title: R.string.localizable.total_amount(),
+                    placeholder: R.string.localizable.enter_total_amount(),
+                    text: Binding(
+                        get: { String(format: "%.2f", totalAmount) },
+                        set: { newValue in
+                            totalAmount = Double(newValue) ?? 0.0
+                        }
+                    )
                 )
-
-                .textFieldStyle(PlainTextFieldStyle())
-                .font(.system(size: 15))
-                .padding(8)
-                .background(Color(.darkGray).opacity(0.2))
-                .cornerRadius(6)
             }
-            .padding(.horizontal, 10)
+            .padding(.top, 8)
         }
-        .padding()
     }
 }
 

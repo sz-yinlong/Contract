@@ -7,40 +7,39 @@ struct ContractGeneratorView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 16) {
-                    HStack {
+                    // Секция Продавца и Номер Контракта
+                    HStack(alignment: .top, spacing: 16) {
+                        // Секция Продавца с Иконкой
                         SellerSection(
                             selectedSeller: $viewModel.selectedSeller,
                             sellers: viewModel.sellers
                         )
-                        .padding(.trailing, 50)
+                        .frame(maxWidth: .infinity)
+                        .padding(.trailing, 20) // Умеренный отступ
 
-                        VStack(alignment: .trailing, spacing: 4) {
-                            Text(R.string.localizable.contract_number())
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                            Text(viewModel.contractData.contractNumber)
-                                .font(.caption)
-                                .fontDesign(.monospaced)
-                        }
+                        // Номер Контракта
+                        ContractNumberSection(
+                            contractNumber: viewModel.contractData.contractNumber,
+                            contractDate: $viewModel.contractData.contractDate
+                        )
                         .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                     .padding(.horizontal, 18)
 
+
                     Divider()
                         .padding(.horizontal, 18)
 
+                    // Основные Секции: Покупатель и Детали Контракта
                     VStack(spacing: 16) {
-                        
-                        HStack {
-                            BuyerInformationSection(viewModel: viewModel)
-                                .padding(EdgeInsets(top: 8, leading: 18, bottom: 8, trailing: 250))
-                        }
+                        BuyerSection(viewModel: viewModel)
+                        ContractDetailsSection(
+                            totalAmount: $viewModel.contractData.totalAmount
+                        )
                     }
-                    
-                    ContractDetailsSection(
-                        totalAmount: $viewModel.contractData.totalAmount
-                    )
-                    .sectionStyle()
+                    .padding(.horizontal, 18)
+
+                    // Кнопка Генерации Контракта
                     GenerateContractButton {
                         withAnimation {
                             viewModel.generateContract()
@@ -48,23 +47,22 @@ struct ContractGeneratorView: View {
                     }
                     .padding(.horizontal, 18)
                 }
+                .padding()
+                .background(.ultraThinMaterial)
+                .cornerRadius(12)
+                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
                 .frame(minWidth: 600, minHeight: 800)
-                .padding(8)
-                
-                .background(.thinMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
             }
-            .navigationTitle(R.string.localizable.contract_generator())
         }
-        .frame(minWidth: 600, minHeight: 600)
-        
+        .navigationTitle(R.string.localizable.contract_generator())
+        .frame(minWidth: 800, minHeight: 600)
     }
 }
 
 struct ContractGeneratorView_Previews: PreviewProvider {
     static var previews: some View {
         ContractGeneratorView()
-            .frame(width: 700, height: 600) // Adjust as needed
-            .previewLayout(.sizeThatFits) // Prevents extra spacing
+            .frame(width: 800, height: 600)
+            .previewLayout(.sizeThatFits)
     }
 }

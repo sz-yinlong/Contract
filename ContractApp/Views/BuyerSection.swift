@@ -4,14 +4,19 @@
 //
 //  Created by ARTEM BARIEV on 11/26/24.
 //
+
+
 import SwiftUI
 
-struct BuyerInformationSection: View {
+struct BuyerSection: View {
     @ObservedObject var viewModel: ContractViewModel
 
     var body: some View {
-        VStack(spacing: 10) {
-            InformationSection(title: R.string.localizable.buyer_info(), iconName: "person.fill") {
+        InformationSection(
+            title: R.string.localizable.buyer_info(),
+            iconName: "person.fill"
+        ) {
+            VStack(spacing: 12) {
                 LabeledTextField(
                     title: R.string.localizable.buyer_name(),
                     placeholder: R.string.localizable.enter_buyer_name(),
@@ -28,12 +33,15 @@ struct BuyerInformationSection: View {
                     text: $viewModel.contractData.buyerRegNumber
                 )
             }
+            .padding(.top, 8)
         }
-    
-        .padding()
     }
 }
 
-#Preview {
-    ContractGeneratorView()
+struct BuyerInformationSection_Previews: PreviewProvider {
+    static var previews: some View {
+        BuyerSection(viewModel: ContractViewModel())
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
 }
